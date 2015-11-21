@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,5 +80,9 @@ namespace seance2
             get { return remark; }
             set { remark = value; }
         }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+        //Numéro de version de l'utilisateur pour détecter les accès concurrent.
     }
 }
