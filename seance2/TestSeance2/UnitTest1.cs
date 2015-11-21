@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using seance2;
 using System.Data.Entity;
+using System.Linq;
 
 namespace TestSeance2
 {
@@ -9,7 +10,7 @@ namespace TestSeance2
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InsertionFonctionnelle()
         {
             Database.SetInitializer(new DropCreateDatabaseAlways<CompanyContext>());
             CompanyContext ctx = new CompanyContext();
@@ -25,15 +26,20 @@ namespace TestSeance2
             customer.PostCode = "5000";
             customer.Remark = "Just not perfect";
 
-            ctx.Customers1.Add(customer);
+            ctx.Customers.Add(customer);
 
             ctx.SaveChanges();
+
+            VerifyDatabaseIsNotEmpty();
             
         }
 
         public void VerifyDatabaseIsNotEmpty()
         {
             CompanyContext ctx = new CompanyContext();
+            int count = ctx.Customers.Count();
+
+            Assert.IsTrue(count > 0);
             
 
         }

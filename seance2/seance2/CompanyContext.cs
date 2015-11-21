@@ -9,15 +9,17 @@ namespace seance2
 {
     public class CompanyContext : DbContext
     {
-        private DbSet<Customer> Customers;
 
-        public DbSet<Customer> Customers1
+        private DbSet<Customer> customers;
+
+        public DbSet<Customer> Customers
         {
-            get { return Customers; }
-            set { Customers = value; }
+            get { return customers; }
+            set { customers = value; }
         }
+      
         public CompanyContext()
-            : base(@"Data Source=vm-sql.iesn.be\stu3ig;Initial Catalog=DBIG3A6;User ID=IG3A6;Password=***********")
+            : base(@"Data Source=vm-sql.iesn.be\stu3ig;Initial Catalog=DBIG3A6;User ID=IG3A6;Password=pwUserdb34")
         {
                
         }
