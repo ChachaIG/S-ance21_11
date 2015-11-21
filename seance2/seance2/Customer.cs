@@ -15,6 +15,7 @@ namespace seance2
             get { return accountBalance; }
             set { accountBalance = value; }
         }
+
         private string addressLine1;
 
         public string AddressLine1
